@@ -1,21 +1,27 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+
+import com.library.dao.AlunoDAO;
+import com.library.dao.LivroDAO;
+import com.library.dao.ReservaDAO;
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
+    
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        //  Criar tabelas
+        inicializaTabelas();
+    }
 
-        String url = "jdbc:sqlite:database.db";
-        Connection connection = DriverManager.getConnection(url);
-
-        String createTableQuery = "CREATE TABLE IF NOT EXISTS aluno (id INTEGER PRIMARY KEY, nome TEXT, idade INTEGER)";
-        Statement statement = connection.createStatement();
-        statement.execute(createTableQuery);
-        String insertQuery = "INSERT INTO aluno (nome, idade) VALUES ('João', 20)";
-        statement.executeUpdate(insertQuery);
-
-        connection.close();
-        System.out.println("Conectou");
+    public static void inicializaTabelas() {
+        try {
+            AlunoDAO alunoDAO = new AlunoDAO();
+            alunoDAO.createTableQuery();
+            LivroDAO livroDAO = new LivroDAO();
+            livroDAO.createTableQuery();
+            ReservaDAO reservaDAO = new ReservaDAO();
+            reservaDAO.createTableQuery();
+            System.out.println("Tabelas criadas com sucesso!");
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
