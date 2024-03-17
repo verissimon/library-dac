@@ -9,9 +9,9 @@ public class Reserva {
     private LocalDate dataReserva;
     private LocalDate dataDevolucao;
 
-    public Reserva(Livro livro, Aluno aluno, LocalDate dataReserva, LocalDate dataDevolucao) {
-        this.livro = livro;
+    public Reserva(Aluno aluno, Livro livro, LocalDate dataReserva, LocalDate dataDevolucao) {
         this.aluno = aluno;
+        this.livro = livro;
         this.dataReserva = dataReserva;
         this.dataDevolucao = dataDevolucao;
     }
