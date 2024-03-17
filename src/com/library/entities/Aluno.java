@@ -7,7 +7,17 @@ public class Aluno {
 	private String nomeCompleto;
 	private String curso;
 
+    public Aluno(String matricula, String nomeCompleto, String curso) {
+        this.matricula = matricula;
+        this.nomeCompleto = nomeCompleto;
+        this.curso = curso;
+    }
+    
+    public Aluno() {
+    }
+
     public Long getId() {
+        
         return id;
     }
 

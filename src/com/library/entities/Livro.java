@@ -8,6 +8,16 @@ public class Livro {
     private String autor;
     private String editora;
 
+    public Livro(String isbn, String titulo, String autor, String editora) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.editora = editora;
+    }
+
+    public Livro() {
+    }
+    
     public Long getId() {
         return id;
     }

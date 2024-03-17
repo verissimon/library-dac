@@ -2,25 +2,22 @@ package com.library.entities;
 
 import java.time.LocalDate;
 
-/*
-*   
-    import java.time.format.DateTimeFormatter;
-
-    DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
-
-    LocalDate date = LocalDate.now(); // data de nova reserva
-    String textDate = date.format(formatter); // LocalDate -> String para salvar no banco
-    LocalDate parsedDate = LocalDate.parse(textDate, formatter); // String textDate -> LocalDate para recuperar do banco
-    System.out.println(textDate + " " + parsedDate);
- 
- */
-
 public class Reserva {
     
     private Livro livro;
     private Aluno aluno;
     private LocalDate dataReserva;
     private LocalDate dataDevolucao;
+
+    public Reserva(Livro livro, Aluno aluno, LocalDate dataReserva, LocalDate dataDevolucao) {
+        this.livro = livro;
+        this.aluno = aluno;
+        this.dataReserva = dataReserva;
+        this.dataDevolucao = dataDevolucao;
+    }
+
+    public Reserva() {
+    }
 
     public Livro getLivro() {
         return livro;
